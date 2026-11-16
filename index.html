@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MANOR — Soft & Slow Luxury for Women</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400&display=swap">
+<style>
+:root{--bg:#150d10;--bg2:#1e1216;--ink:#f3e9dc;--mut:#b9a79f;--gold:#d4b277;--line:rgba(212,178,119,.3)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:Jost,system-ui,sans-serif;font-weight:300;line-height:1.7;overflow-x:hidden}
+h1,h2,h3,.serif{font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;line-height:1.15}
+button{font-family:inherit;cursor:pointer}
+header{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:12px 22px;background:rgba(21,13,16,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.lg{display:flex;align-items:center;gap:10px;color:var(--gold);background:none;border:0}
+.lg b{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:24px;letter-spacing:.4em;color:var(--ink)}
+.ic{background:none;border:0;color:var(--gold);font-size:11px;letter-spacing:.25em;text-transform:uppercase;padding:10px}
+.bg{width:44px;height:44px;border:0;background:none;display:flex;flex-direction:column;justify-content:center;align-items:flex-end;gap:7px}
+.bg span{display:block;height:1.5px;background:var(--gold);transition:.4s;width:28px}.bg span:nth-child(2){width:20px}
+.bg.x span:nth-child(1){transform:translateY(8.5px) rotate(45deg)}.bg.x span:nth-child(2){opacity:0}.bg.x span:nth-child(3){transform:translateY(-8.5px) rotate(-45deg)}
+.menu{position:fixed;inset:66px 0 0;z-index:15;background:var(--bg2);display:none;flex-direction:column;align-items:center;justify-content:center;gap:20px}
+.menu.on{display:flex}
+.menu button{background:none;border:0;color:var(--ink);font-family:'Cormorant Garamond',serif;font-size:clamp(30px,7vw,50px);letter-spacing:.1em;font-weight:300}
+.menu button:hover{color:var(--gold);font-style:italic}
+.hero{min-height:92vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 22px;background:radial-gradient(ellipse at 50% 30%,#3a1f2a,#1d1015 70%)}
+.eb{font-size:11px;letter-spacing:.45em;text-transform:uppercase;color:var(--gold)}
+.hero h1{font-size:clamp(44px,9vw,100px);margin:24px 0}em{color:var(--gold)}
+.hero p{max-width:460px;color:var(--mut)}
+.btn{margin-top:36px;padding:15px 40px;border:1px solid var(--gold);background:none;color:var(--gold);font-size:11px;letter-spacing:.35em;text-transform:uppercase;transition:.4s}
+.btn:hover,.btn.f{background:var(--gold);color:var(--bg)}
+.sec{max-width:1150px;margin:auto;padding:90px 22px;text-align:center}
+.sec h2{font-size:clamp(32px,6vw,54px);margin:14px 0 30px}
+.tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 22px;margin-bottom:44px}
+.tabs button{background:none;border:0;border-bottom:1px solid transparent;color:var(--mut);font-size:11px;letter-spacing:.3em;text-transform:uppercase;padding:6px 2px}
+.tabs button.on{color:var(--gold);border-color:var(--gold)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:26px;text-align:left}
+.pc{cursor:pointer}.im{aspect-ratio:3/4;position:relative;border:1px solid var(--line);transition:.5s;background-size:cover;background-position:center}
+.pc .im::after,.md .im::after{content:"";position:absolute;inset:10px;border:1px solid rgba(255,255,255,.3)}
+.pc:hover .im{transform:translateY(-5px)}
+.pc h3{font-size:22px;margin-top:14px}.pc small{color:var(--mut);letter-spacing:.2em;font-size:10px;text-transform:uppercase}
+.pr{color:var(--gold);margin-top:4px}
+.ov{position:fixed;inset:0;z-index:30;background:rgba(0,0,0,.6);display:none}.ov.on{display:block}
+.dr{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);z-index:31;background:var(--bg2);border-left:1px solid var(--line);padding:26px;display:none;flex-direction:column;overflow:auto}.dr.on{display:flex}
+.md{position:fixed;z-index:31;inset:0;margin:auto;width:min(760px,94%);height:fit-content;max-height:92vh;overflow:auto;background:var(--bg2);border:1px solid var(--line);display:none;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}.md.on{display:grid}
+.md .im{min-height:320px}.md .tx{padding:34px;text-align:left}
+.row{display:flex;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.row .th{width:52px;height:68px;flex:none;background-size:cover}
+.qt{display:inline-flex;align-items:center;gap:10px;margin-top:6px}.qt button{width:26px;height:26px;border:1px solid var(--line);background:none;color:var(--gold)}
+.vals{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:36px;margin-top:40px}
+.vals h3{color:var(--gold);font-size:26px;margin-bottom:8px}.vals p{color:var(--mut);font-size:15px}
+.ct{max-width:520px;margin:30px auto 0;display:flex;flex-direction:column;gap:14px}
+.ct input,.ct textarea{background:none;border:0;border-bottom:1px solid var(--line);color:var(--ink);font:inherit;padding:12px 2px;outline:none}
+footer{text-align:center;padding:50px 22px;border-top:1px solid var(--line);color:var(--mut);font-size:11px;letter-spacing:.25em;text-transform:uppercase}
+</style>
+</head>
+<body>
+<header>
+  <button class="lg" onclick="go('top')" aria-label="Manor">
+    <svg width="40" height="40" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="32" cy="32" r="30"/><circle cx="32" cy="32" r="26.5" stroke-width=".5"/><path d="M17 46V22l15 14 15-14v24" stroke-width="2" stroke-linejoin="round"/><path d="M32 36V14M26 20c3-3 9-3 12 0M28 26c2-2 6-2 8 0" stroke-width="1"/><path d="M13 50h38" stroke-width=".8"/></svg>
+    <b>MANOR</b>
+  </button>
+  <div style="display:flex;align-items:center">
+    <button class="ic" onclick="openCart()">Bag (<span id="cnt">0</span>)</button>
+    <button class="bg" id="bg" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="menu" id="menu">
+  <button onclick="go('shop')">Shop</button><button onclick="go('maison')">Maison</button><button onclick="go('contact')">Contact</button>
+</div>
+
+<div id="top" class="hero">
+  <div class="eb">Maison de Mode · For Her</div>
+  <h1>Luxury, <em>unhurried</em></h1>
+  <p>Heirloom fashion for girls and women. Soft in feeling, slow in making, timeless in every stitch.</p>
+  <button class="btn" onclick="go('shop')">Discover the Collection</button>
+</div>
+
+<section id="shop" class="sec">
+  <div class="eb">The Collection</div>
+  <h2>Pieces to <em>keep</em></h2>
+  <div class="tabs" id="tabs"></div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section id="maison" class="sec" style="border-top:1px solid var(--line)">
+  <div class="eb">La Maison</div>
+  <h2>Softness is its own <em>luxury</em></h2>
+  <p style="max-width:600px;margin:auto;color:var(--mut)">Manor is dedicated entirely to girls and women. Every piece is made in small batches by master artisans, designed to be worn for decades and passed from mother to daughter.</p>
+  <div class="vals">
+    <div><h3>Made slowly</h3><p>Finished by hand in small ateliers.</p></div>
+    <div><h3>Softly woven</h3><p>Silk, cashmere, linen and merino.</p></div>
+    <div><h3>Kept forever</h3><p>Lifetime repair and care service.</p></div>
+  </div>
+</section>
+
+<section id="contact" class="sec" style="border-top:1px solid var(--line)">
+  <div class="eb">Client Services</div>
+  <h2>Write to <em>us</em></h2>
+  <p style="color:var(--mut)" id="mail"></p>
+  <form class="ct" onsubmit="sendMsg(event)">
+    <input id="fn" required placeholder="Your name">
+    <input id="fe" required type="email" placeholder="Your email">
+    <textarea id="fm" required rows="4" placeholder="How may we help?"></textarea>
+    <button class="btn f" style="margin-top:10px">Send Message</button>
+  </form>
+</section>
+
+<footer>© 2026 Manor · <span id="mail2"></span></footer>
+
+<div class="ov" id="ov" onclick="closeAll()"></div>
+<div class="md" id="md"></div>
+<aside class="dr" id="dr"></aside>
+
+<script>
+/* ====== EDIT THESE ====== */
+const EMAIL = "tanishparashar134@gmail.com";
+// Google Sheets "Publish to web" CSV link. Leave empty to use the products below.
+const SHEET_URL = "";
+/* ======================== */
+
+let PRODUCTS = [
+  {id:1,name:"Silk Chantilly Gown",cat:"Evening",price:4200,g:["#5a2a3a","#2a1018"],note:"Mulberry silk, hand-finished hem"},
+  {id:2,name:"Cashmere Cloud Wrap",cat:"Knitwear",price:1850,g:["#e8d5cf","#c9a9a6"],note:"Pure Mongolian cashmere"},
+  {id:3,name:"Manor Monogram Tote",cat:"Bags",price:3400,g:["#d9c3a0","#9c7a3c"],note:"Italian calfskin, gold hardware"},
+  {id:4,name:"Petite Pearl Dress",cat:"Girls",price:780,g:["#f3e6e1","#d8b9b6"],note:"Organic cotton, pearl buttons"},
+  {id:5,name:"Linen Atelier Blazer",cat:"Everyday",price:1250,g:["#cdbfae","#8a7761"],note:"Belgian linen, soft tailoring"},
+  {id:6,name:"Velvet Hour Clutch",cat:"Bags",price:1650,g:["#3b1c2b","#16090f"],note:"Silk velvet, gilded clasp"},
+  {id:7,name:"Rosewater Silk Blouse",cat:"Everyday",price:920,g:["#ecd0c8","#c99a97"],note:"Washed silk, mother-of-pearl"},
+  {id:8,name:"Little Manor Cardigan",cat:"Girls",price:540,g:["#e9dccb","#bfa57e"],note:"Baby merino, hand-knitted"}
+];
+let cat = "All", cart = {};
+const $ = id => document.getElementById(id);
+const fmt = n => "$" + Number(n).toLocaleString("en-US");
+const bgOf = p => p.image ? `background-image:url('${p.image}')` : `background:linear-gradient(160deg,${p.g[0]},${p.g[1]})`;
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+function parseCSV(t){
+  const rows=[];let r=[],c="",q=false;
+  for(let i=0;i<t.length;i++){const ch=t[i];
+    if(q){if(ch=='"'&&t[i+1]=='"'){c+='"';i++}else if(ch=='"')q=false;else c+=ch}
+    else if(ch=='"')q=true;else if(ch==','){r.push(c);c=""}
+    else if(ch=='\n'||ch=='\r'){if(ch=='\r'&&t[i+1]=='\n')i++;r.push(c);rows.push(r);r=[];c=""}
+    else c+=ch}
+  if(c||r.length){r.push(c);rows.push(r)}
+  return rows;
+}
+async function loadSheet(){
+  if(!SHEET_URL) return;
+  try{
+    const rows=parseCSV(await (await fetch(SHEET_URL)).text());
+    const h=rows[0].map(x=>x.trim().toLowerCase());
+    const list=rows.slice(1).filter(r=>r[h.indexOf("name")]).map((r,i)=>{
+      const o={};h.forEach((k,j)=>o[k]=(r[j]||"").trim());
+      return {id:o.id||i+1,name:o.name,cat:o.cat||"All",price:parseFloat(o.price)||0,image:o.image,note:o.note,g:["#d9c3a0","#9c7a3c"]};
+    });
+    if(list.length) PRODUCTS=list;
+  }catch(e){console.warn("Sheet failed, using built-in products",e)}
+}
+
+function render(){
+  const cats=["All",...new Set(PRODUCTS.map(p=>p.cat))];
+  $("tabs").innerHTML=cats.map(c=>`<button class="${c===cat?"on":""}" onclick="setCat('${esc(c)}')">${esc(c)}</button>`).join("");
+  $("grid").innerHTML=PRODUCTS.filter(p=>cat==="All"||p.cat===cat).map(p=>
+    `<div class="pc" onclick="openProduct('${p.id}')"><div class="im" style="${bgOf(p)}"></div><small>${esc(p.cat)}</small><h3>${esc(p.name)}</h3><div class="pr">${fmt(p.price)}</div></div>`).join("");
+  $("cnt").textContent=Object.values(cart).reduce((a,b)=>a+b,0);
+}
+const setCat=c=>{cat=c;render()};
+const find=id=>PRODUCTS.find(p=>String(p.id)===String(id));
+
+function go(id){closeAll();$("menu").classList.remove("on");$("bg").classList.remove("x");$(id).scrollIntoView({behavior:"smooth"})}
+function toggleMenu(){$("menu").classList.toggle("on");$("bg").classList.toggle("x")}
+function closeAll(){["ov","md","dr"].forEach(i=>$(i).classList.remove("on"))}
+
+function openProduct(id){
+  const p=find(id);
+  $("md").innerHTML=`<div class="im" style="${bgOf(p)}"></div><div class="tx"><div class="eb">${esc(p.cat)}</div><h2 style="font-size:36px;margin:10px 0">${esc(p.name)}</h2><p style="color:var(--mut)">${esc(p.note||"")}. Made to order with complimentary gift packaging and free worldwide shipping.</p><div class="serif" style="font-size:30px;color:var(--gold);margin:18px 0">${fmt(p.price)}</div><button class="btn f" style="margin-top:0" onclick="add('${p.id}',1,true)">Add to Bag</button><button class="ic" onclick="closeAll()">Close</button></div>`;
+  $("ov").classList.add("on");$("md").classList.add("on");
+}
+function add(id,d,open){
+  const n=(cart[id]||0)+d;
+  if(n<=0)delete cart[id];else cart[id]=n;
+  render();
+  if(open)openCart();else if($("dr").classList.contains("on"))openCart();
+}
+function openCart(){
+  const items=PRODUCTS.filter(p=>cart[p.id]);
+  const total=items.reduce((s,p)=>s+p.price*cart[p.id],0);
+  $("dr").innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center"><h2 style="font-size:32px">Your Bag</h2><button class="ic" onclick="closeAll()">Close</button></div>`+
+    (items.length?"":`<p style="color:var(--mut);margin-top:30px">Your bag is empty.</p>`)+
+    items.map(p=>`<div class="row"><div class="th" style="${bgOf(p)}"></div><div style="flex:1"><div class="serif" style="font-size:19px">${esc(p.name)}</div><div style="color:var(--gold)">${fmt(p.price)}</div><div class="qt"><button onclick="add('${p.id}',-1)">−</button>${cart[p.id]}<button onclick="add('${p.id}',1)">+</button></div></div></div>`).join("")+
+    (items.length?`<div style="margin-top:auto;padding-top:24px"><div style="display:flex;justify-content:space-between;font-size:18px"><span>Total</span><span style="color:var(--gold)">${fmt(total)}</span></div><button class="btn f" style="width:100%" onclick="checkout()">Request Order</button></div>`:"");
+  $("md").classList.remove("on");$("ov").classList.add("on");$("dr").classList.add("on");
+}
+function checkout(){
+  const items=PRODUCTS.filter(p=>cart[p.id]);
+  const lines=items.map(p=>`${cart[p.id]} x ${p.name} (${fmt(p.price)})`).join("\n");
+  const total=items.reduce((s,p)=>s+p.price*cart[p.id],0);
+  location.href=`mailto:${EMAIL}?subject=${encodeURIComponent("Manor order request")}&body=${encodeURIComponent(lines+"\n\nTotal: "+fmt(total))}`;
+}
+function sendMsg(e){
+  e.preventDefault();
+  const body=`Name: ${$("fn").value}\nEmail: ${$("fe").value}\n\n${$("fm").value}`;
+  location.href=`mailto:${EMAIL}?subject=${encodeURIComponent("Manor enquiry from "+$("fn").value)}&body=${encodeURIComponent(body)}`;
+}
+
+$("mail").textContent=EMAIL;$("mail2").textContent=EMAIL;
+render();
+loadSheet().then(render);
+</script>
+</body>
+</html>
